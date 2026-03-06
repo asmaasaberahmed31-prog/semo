@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fce7c8; /* بيج هادي */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #8b5e3c; /* بني هادي */
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.album {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-end; /* الصور ناحية اليمين */
+}
+
+.photo-row {
+    display: flex;
+    flex-direction: row-reverse; /* الصورة على اليمين والكلام على الشمال */
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.photo-container {
+    position: relative;
+    border: 5px solid #d4bfa3;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+}
+
+.photo-container img {
+    display: block;
+    width: 250px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.photo-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.caption-box {
+    border: 5px solid #d4bfa3; /* نفس حدود الصورة */
+    border-radius: 15px;
+    padding: 10px;
+    background-color: #fff6ed;
+    flex: 1;
+    text-align: right; /* الكتابة من اليمين للشمال */
+}
+
+@media(max-width: 600px) {
+    .photo-row {
+        flex-direction: column; /* على الموبايل الصورة فوق الكلام */
+        align-items: center;
+    }
+    .photo-container img {
+        width: 90%;
+    }
+    .caption-box {
+        width: 90%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صورنا الرومانسية</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5efe6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* العنوان + الرسالة داخل صندوق */
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff6ed;
+            border: 5px solid #d4bfa3;
+            border-radius: 15px;
+            padding: 15px 30px;
+            color: #8b5e3c;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+
+        .header-text h1 {
+            margin: 10px 0;
+            font-size: 28px;
+        }
+
+        .header-text span {
+            font-size: 18px;
+        }
+
+        /* الصور */
+        .photo-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .photo-container {
+            background-color: #d4bfa3;
+            padding: 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .photo-container img {
+            width: 300px;
+            height: auto;
+            cursor: pointer;
+            border-radius: 15px;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .photo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-container p {
+            text-align: center;
+            color: #8b5e3c;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 95%;
+            max-height: 95%;
+            border-radius: 15px;
+        }
+
+        @media(max-width: 600px) {
+            .photo-container img {
+                width: 90vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-text">
+            <h1>لحظاتنا الجميلة 💖</h1>
+            <span>كل يوم معك أحلى من اليوم اللي قبله، وقلبي مليان فرح بيك 💕</span>
+        </div>
+    </header>
+
+    <div class="photo-row">
+        <div class="photo-container">
+            <img class="photo-img" src="image/photo_8_2026-03-06_14-35-05.jpg" alt="صورنا">
+            <p>أجمل ابتسامة 💖</p>
+        </div>
+        <div class="photo-container">
+            <img class="photo-img" src="image/photo_16_2026-03-06_14-35-05.jpg" alt="صورنا">
+            <p>لحظة حنين 🌸</p>
+        </div>
+        <div class="photo-container">
+            <img class="photo-img" src="image/photo_19_2026-03-06_14-35-05.jpg" alt="صورنا">
+            <p>ضحكتنا سوا 😍</p>
+        </div>
+        <div class="photo-container">
+            <img class="photo-img" src="image/photo_14_2026-03-06_14-35-05.jpg" alt="صورنا">
+            <p>قلوب متشابكة 💕</p>
+        </div>
+        <div class="photo-container">
+            <img class="photo-img" src="image/photo_15_2026-03-06_14-35-05.jpg" alt="صورنا">
+            <p>لحظة حب صافية 💖</p>
+        </div>
+        <div class="photo-container">
+            <img class="photo-img" src="image/photo_11_2026-03-06_14-35-05.jpg" alt="صورنا">
+            <p>معاك كل يوم أحلى 🌸</p>
+        </div>
+        <div class="photo-container">
+            <img class="photo-img" src="image/photo_17_2026-03-06_14-35-05.jpg" alt="صورنا">
+<p>سحر العيون 😍</p>
+        </div>
+         <div class="photo-container">
+            <img class="photo-img" src="image/photo_7_2026-03-06_14-35-05.jpg" alt="صورنا">
+            <p>ناس جميله  💖</p>
+        </div>
+     <div class="photo-container">
+            <img class="photo-img" src="image/photo_6_2026-03-06_14-35-05.jpg" alt="صورنا">
+            <p> قمر في الصوره 💖</p>
+        </div>
+ <div class="photo-container">
+            <img class="photo-img" src="image/photo_1_2026-03-06_14-35-05.jpg" alt="صورنا">
+            <p>حضن دافي 💖</p>
+        </div>
+ <div class="photo-container">
+            <img class="photo-img" src="image/photo_21_2026-03-06_14-35-05.jpg" alt="صورنا">
+            <p>خروجه جميلة 💖</p>
+        </div>
+     <div class="photo-container">
+            <img class="photo-img" src="image/photo_11_2026-03-06_14-35-05.jpg" alt="صورنا">
+            <p>صوره جميله  💖</p>
+        </div>
+ <div class="photo-container">
+            <img class="photo-img" src="image/photo_13_2026-03-06_14-35-05.jpg" alt="صورنا">
+            <p> عيد سعيد 💖</p>
+        </div>
+
+        <div class="photo-container">
+            <img class="photo-img" src="image/photo_20_2026-03-06_14-35-05.jpg" alt="صورنا">
+            <p>لحظات دافية 💕</p>
+        </div>
+        <div class="photo-container">
+            <img class="photo-img" src="image/photo_5_2026-03-06_14-35-05.jpg" alt="صورنا">
+            <p>ضحكاتنا ❤️</p>
+
+        </div>
+        </div>
+
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <img id="lightbox-img" src="" alt="صورة مكبرة">
+    </div>
+
+    <script>
+        const photos = document.querySelectorAll('.photo-img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        photos.forEach(photo => {
+            photo.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = photo.src;
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

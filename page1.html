@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطوبتنا</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5efe6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* العنوان + الرسالة داخل صندوق */
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff6ed;
+            border: 5px solid #d4bfa3;
+            border-radius: 15px;
+            padding: 15px 30px;
+            color: #8b5e3c;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+
+        .header-text h1 {
+            margin: 10px 0;
+            font-size: 28px;
+        }
+
+        .header-text span {
+            font-size: 18px;
+        }
+
+        /* الصفوف مع الصور */
+        .photo-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* الصور تتوزع على عدة أسطر لو الشاشة صغيرة */
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* غلاف بني حول الصورة */
+        .photo-container {
+            background-color: #d4bfa3; /* الغلاف البني */
+            padding: 10px; 
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .photo-container img {
+            width: 300px; /* حجم ثابت مناسب */
+            height: auto;
+            cursor: pointer;
+            border-radius: 15px;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .photo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 95%;
+            max-height: 95%;
+            border-radius: 15px;
+        }
+
+        @media(max-width: 600px) {
+            .photo-container img {
+                width: 90vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-text">
+            <h1>خطوبتنا 💍</h1>
+            <span>اليوم الذي بدأنا فيه أحلى رحلة مع بعض 💕</span>
+        </div>
+    </header>
+
+    <!-- صور الألبوم -->
+    <div class="photo-row">
+        <!-- استخدمنا class لكل صورة بدل id -->
+        <!-- سأضع 20 صورة مختلفة عشوائياً من picsum -->
+        <div class="photo-container"><img class="photo-img" src="image/photo_5_2026-03-06_11-39-27.jpg" alt="خطوبتنا"></div>
+        <div class="photo-container"><img class="photo-img" src="image/photo_1_2026-03-06_11-39-27.jpg" alt="خطوبتنا"></div>
+        <div class="photo-container"><img class="photo-img" src="image/photo_11_2026-03-06_11-39-27.jpg" alt="خطوبتنا"></div>
+        <div class="photo-container"><img class="photo-img" src="image/photo_2026-03-06_11-46-11.jpg" alt="خطوبتنا"></div>
+        <div class="photo-container"><img class="photo-img" src="image/photo_9_2026-03-06_11-39-27.jpg" alt="خطوبتنا"></div>
+        <div class="photo-container"><img class="photo-img" src="image/photo_7_2026-03-06_11-39-27.jpg" alt="خطوبتنا"></div>
+        <div class="photo-container"><img class="photo-img" src="image/photo_5_2026-03-06_11-28-22.jpg" alt="خطوبتنا"></div>
+        <div class="photo-container"><img class="photo-img" src="image/photo_4_2026-03-06_11-28-22.jpg" alt="خطوبتنا"></div>
+        <div class="photo-container"><img class="photo-img" src="image/photo_3_2026-03-06_11-28-22.jpg" alt="خطوبتنا"></div>
+        <div class="photo-container"><img class="photo-img" src="image/photo_1_2026-03-06_11-28-22.jpg" alt="خطوبتنا"></div>
+        <div class="photo-container"><img class="photo-img" src="image/photo_2_2026-03-06_11-28-22.jpg" alt="خطوبتنا"></div>
+        <div class="photo-container"><img class="photo-img" src="image/photo_2_2026-03-06_11-39-27.jpg" alt="خطوبتنا"></div>
+         <div class="photo-container"><img class="photo-img" src="image/photo_2026-03-06_11-27-52.jpg" alt="خطوبتنا"></div>
+        <div class="photo-container"><img class="photo-img" src="image/photo_4_2026-03-06_14-35-05.jpg" alt="خطوبتنا"></div>
+        <div class="photo-container"><img class="photo-img" src="image/photo_2026-03-06_11-49-48.jpg" alt="خطوبتنا"></div>
+
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <img id="lightbox-img" src="" alt="صورة مكبرة">
+    </div>
+
+    <script>
+        const photos = document.querySelectorAll('.photo-img'); // كل الصور
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        photos.forEach(photo => {
+            photo.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = photo.src; // تكبر الصورة اللي اضغطنا عليها
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
